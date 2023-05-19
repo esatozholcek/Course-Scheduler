@@ -1,75 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Schedule Maker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="schedule.png">
 </head>
+
 <body>
-    <h1>Ders Programı</h1>
-    <!-- <label for="file-upload" class="custom-file-upload">
-        Custom Upload
-    </label>
-    <form action="/action_page.php">
-        <input type="file" id="myFile" name="filename">
-        <input type="submit">
-      </form>
-    <input id="file-upload" type="file"/> -->
-    <input type="file" accept=".csv" id="picker1">
-    <input type="file" accept=".csv" id="picker2">
-    <input type="file" accept=".csv" id="picker3">
-    <input type="file" accept=".csv" id="picker4">
-	<input type="button" id="uploadFile" value="Upload File" >
-    <table id="table"></table>
-    <table border="8" width="300px" cellspacing="10" cellpadding="20">
-        <tr>
-            <td colspan="10" align="center"> <b>GOKYUZUAVCISI <br>Ders Programı </b> </td>
-        </tr>
-        <tr>
-            <td rowspan="7"><b> Günler </b></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>1.Ders</td>
-            <td>2.Ders</td>
-            <td>3.Ders</td>
-            <td>4.Ders</td>
-            <td>5.Ders</td>
-            <td>6.Ders</td>
-            <td>7.Ders</td>
-            <td>8.Ders</td>
-        <tr>
-            <td>Pazartesi</td>
-            <td colspan="3">Python</td>
-            <td colspan="3">C#</td>
-            <td colspan="3">SQL</td>
-        </tr>
-        <tr>
-            <td>Salı</td>
-            <td colspan="2">Flutter</td>
-            <td colspan="4">C</td>
+  <header>
+    <h1 class="header-text">Schedule Maker</h1>
+  </header>
 
-            <td colspan="2">Java</td>
-        </tr>
-        <tr>
-            <td>Çarşamba</td>
-            <td colspan="3">C++</td>
-            <td colspan="5">Mathlab</td>
-        </tr>
-        <tr>
-            <td>Perşembe</td>
-            <td colspan="4">Kotlin</td>
-            <td colspan="4">Dart</td>
-        </tr>
-        <tr>
-            <td>Cuma</td>
-            <td colspan="3">Javascript</td>
-            <td colspan="3">R</td>
-            <td colspan="2">Swift</td>
+  <div class="row">
+    <div class="col">
+    <p>Welcome to the Schedule Maker! Upload your 4 CSV files and create your schedule.</p>
+    </div>
+  </div>
 
-        </tr>
+  <div class="row">
+    <div class="col">
+      <label for="picker1">CSV file for service courses and time slots:</label>
+      <input type="file" accept=".csv" id="picker1">
+      <label for="picker2">CSV file for classrooms and capasities:</label>
+      <input type="file" accept=".csv" id="picker2">
+      <label for="picker3">CSV file for courses and course details:</label>
+      <input type="file" accept=".csv" id="picker3">
+      <label for="picker4">CSV file for instructors and busy times:</label>
+      <input type="file" accept=".csv" id="picker4">
+    </div>
+  </div> 
+
+	<div class="row">
+    <div class="col">
+      <input type="button" id="uploadFile" value="Create Your Schedule">
+    </div>
+  </div> 
+  
+  <div class="row">
+    <div class="col">
+    <p id="error"></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    <p id="advice"></p>
+    </div>
+  </div>
+
+    <body>
+        <table class="content-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th colspan="2">1. Class</th>
+                <th colspan="2">2. Class</th>
+                <th colspan="2">3. Class</th>
+                <th colspan="2">4. Class</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th rowspan="2">Monday</th>
+                <td>Morning</td>
+                <td id = 0000></td>
+                <td id = 0001></td>
+                <td id = 0010></td>
+                <td id = 0011></td>
+                <td id = 0020></td>
+                <td id = 0021></td>
+                <td id = 0030></td>
+                <td id = 0031></td>
+              </tr>
+              <tr>
+                <td>Afternoon</td>
+                <td id = 0100></td>
+                <td id = 0101></td>
+                <td id = 0110></td>
+                <td id = 0111></td>
+                <td id = 0120></td>
+                <td id = 0121></td>
+                <td id = 0130></td>
+                <td id = 0131></td>
+              </tr>
+              <tr>
+                <th rowspan="2">Tuesday</th>
+                <td>Morning</td>
+                <td id = 1000></td>
+                <td id = 1001></td>
+                <td id = 1010></td>
+                <td id = 1011></td>
+                <td id = 1020></td>
+                <td id = 1021></td>
+                <td id = 1030></td>
+                <td id = 1031></td>
+              </tr>
+              <tr>
+                <td>Afternoon</td>
+                <td id = 1100></td>
+                <td id = 1101></td>
+                <td id = 1110></td>
+                <td id = 1111></td>
+                <td id = 1120></td>
+                <td id = 1121></td>
+                <td id = 1130></td>
+                <td id = 1131></td>
+              </tr>
+              <tr>
+                <th rowspan="2">Wednesday</th>
+                <td>Morning</td>
+                <td id = 2000></td>
+                <td id = 2001></td>
+                <td id = 2010></td>
+                <td id = 2011></td>
+                <td id = 2020></td>
+                <td id = 2021></td>
+                <td id = 2030></td>
+                <td id = 2031></td>
+              </tr>
+              <tr>
+                <td>Afternoon</td>
+                <td id = 2100></td>
+                <td id = 2101></td>
+                <td id = 2110></td>
+                <td id = 2111></td>
+                <td id = 2120></td>
+                <td id = 2121></td>
+                <td id = 2130></td>
+                <td id = 2131></td>
+              </tr>
+              <tr>
+                <th rowspan="2">Thursday</th>
+                <td>Morning</td>
+                <td id = 3000></td>
+                <td id = 3001></td>
+                <td id = 3010></td>
+                <td id = 3011></td>
+                <td id = 3020></td>
+                <td id = 3021></td>
+                <td id = 3030></td>
+                <td id = 3031></td>
+              </tr>
+              <tr>
+                <td>Afternoon</td>
+                <td id = 3100></td>
+                <td id = 3101></td>
+                <td id = 3110></td>
+                <td id = 3111></td>
+                <td id = 3120></td>
+                <td id = 3121></td>
+                <td id = 3130></td>
+                <td id = 3131></td>
+              </tr>
+              <tr>
+                <th rowspan="2">Friday</th>
+                <td>Morning</td>
+                <td id = 4000></td>
+                <td id = 4001></td>
+                <td id = 4010></td>
+                <td id = 4011></td>
+                <td id = 4020></td>
+                <td id = 4021></td>
+                <td id = 4030></td>
+                <td id = 4031></td>
+              </tr>
+              <tr>
+                <td>Afternoon</td>
+                <td id = 4100></td>
+                <td id = 4101></td>
+                <td id = 4110></td>
+                <td id = 4111></td>
+                <td id = 4120></td>
+                <td id = 4121></td>
+                <td id = 4130></td>
+                <td id = 4131></td>
+              </tr>
+            </tbody>
+          </table>
+    </body>
+    
     <script src="index.js"></script>
 </body>
 </html>
